@@ -1,5 +1,5 @@
 #!/bin/sh
-# Author: Your Name <your.email@imperial.ac.uk>
+# Author:  Ximan Ding<x.ding25@imperial.ac.uk>
 # Script: csvtospace.sh
 # Desc: Convert a comma-separated file to a space-separated file.
 #       Does NOT modify the input; writes alongside it as <basename>.space
