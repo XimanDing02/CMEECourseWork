@@ -1,0 +1,27 @@
+# 忽略临时文件
+*.log
+*.tmp
+*.bak
+
+# 忽略LaTeX编译生成文件
+*.aux
+*.out
+*.toc
+*.pdf
+
+# 忽略Python缓存文件
+__pycache__/
+*.pyc
+
+# 忽略VSCode配置
+.vscode/
+
+# 忽略备份和测试文件
+sandbox/
+backup/
+result/
+
+# 忽略数据文件
+data/*.csv
+
+
