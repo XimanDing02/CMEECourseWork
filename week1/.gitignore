@@ -35,8 +35,9 @@ code/MyExampleScript.sh
 code/FirstExample.blg
 code/FirstExample.bbl
 code/FirstExample.aux
-code/FirstBiblio.bib
 code/FirstExample.fdb_latexmk
 code/FirstExample.fls
 code/FirstExample.log
 
+!code/FirstExample.tex
+!code/FirstBiblio.bib
