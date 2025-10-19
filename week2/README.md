@@ -25,11 +25,12 @@ This task taught me about the structure about tuples as immutable ordered data c
 I copy the lc1.py file to control_flow_lc1.py to practice structuring Python programs using control flows. I learned how to take user-provided arguments instead of hardcoded valuesuse, and combine with the conditional statements (like if, elif, else), loops, and return values to control program outputs. 
 
 ### Align DAN sequences
-This task worked with DNA sequences and aligning them programmatically. I handled string data in Python, which including reading sequence data, comparing sequences, and finding the best alignment by minimizing mismatches.
+In this task, I modified the original align_seqs.py script which download from MQB/code to automatically read two DNA sequences from an external input file ../data/align_seqs.csv and write the best alignment and its corresponding score to an output file ../results/best_alignment.txt.
+
+The program aims to read two DNA sequences, determines which one is longer, and slides the shorter sequence along the longer one to find the alignment with the highest number of matching bases. 
 
 ### Missing oaks problem
-In this task, I analysed a dataset to identify the missing entries related to the oak. The focus was on working with data structures such as lists, dictionaries, and sets, and using conditionals and loops to filter and extract information efficiently.
+In the oaks_debugme.py task, the goal was to identify oak species (genus Quercus) from a CSV dataset TestOaksData.csv. In the first beginning when I run this .py document, the script had a bug where no oaks were detected because the function is_an_oak misspelled ``quercus'' as ``quercs''. I fixed this bug, added doctests to verify the function’s correctness, and then improved the function to handle common typos (such as ``Quercuss'') and variations in case or spacing. 
 
-## What I feel challenge
-
-
+## What I found challenge
+Since I learned Python during my undergraduate studies, the first half of the week was very relaxing and enjoyable, and I enjoyed consolidating my knowledge. The second half of the week was filled with new topics. What I feel challenging is was writing effective doctests for the is_an_oak function. It was tricky to think about all possible cases, including typos like ``Quercuss'' or extra spaces, but it let me learned how testing can reveal hidden bugs that are not obvious during manual debugging. 
