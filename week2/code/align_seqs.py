@@ -1,129 +1,149 @@
-#align_seqs.py
 #!/usr/bin/env python3
-
-__author__  = "Ximan Ding (x.ding25@imperial.ac.uk)"
-__version__ = "0.1.0"
-
-import argparse
-import csv
+# -*- coding: utf-8 -*-
+# align_seqs.py
+from __future__ import annotations
 from pathlib import Path
+import csv
+import re
+import sys
+from typing import Tuple, Optional
 
-def clean(seq: str) -> str:
-    """Uppercase and keep only A/C/G/T (drop whitespace and other chars)."""
-    seq = seq.upper()
-    return "".join(ch for ch in seq if ch in {"A", "C", "G", "T"})
+# Allowed DNA bases (A, C, G, T, case-insensitive)
+_VALID_DNA = re.compile(r"^[ACGTacgt]+$")
 
-def calculate_score(longer: str, shorter: str, start: int) -> tuple[int, str]:
-    """
-    Score an alignment by sliding `shorter` so its index 0 sits at `start` on `longer`.
-    Returns (score, match_line) where match_line has '*' for matches and '-' for mismatches.
-    """
+
+def read_two_sequences(csv_path: Path) -> Tuple[str, str]:
+    if not csv_path.exists():
+        raise FileNotFoundError(f"Input file not found: {csv_path}")
+
+    raw = csv_path.read_text(encoding="utf-8", errors="ignore")
+    raw = raw.replace("\r\n", "\n").replace("\r", "\n").lstrip("\ufeff")
+
+    tokens: list[str] = []
+
+    # Try CSV parsing first
+    from io import StringIO
+    f = StringIO(raw)
+    reader = csv.reader(f)
+    for row in reader:
+        for cell in row:
+            cell = cell.strip().strip('"').strip("'")
+            if cell:
+                tokens.append(cell)
+
+    # If nothing was found, split more loosely
+    if not tokens:
+        for line in raw.split("\n"):
+            for cell in re.split(r"[,\t; ]+", line.strip()):
+                if cell:
+                    tokens.append(cell)
+
+    def looks_like_dna(s: str) -> bool:
+        return bool(re.fullmatch(r"[ACGTacgt]+", s))
+
+    seqs = [t.upper() for t in tokens if looks_like_dna(t)]
+
+    # Fallback: global regex extraction if still less than 2 sequences
+    if len(seqs) < 2:
+        seqs = re.findall(r"[ACGT]+", raw.upper())
+
+    if len(seqs) < 2:
+        raise ValueError("Could not find two valid DNA sequences in the input file.")
+
+    return seqs[0], seqs[1]
+
+
+def _looks_like_dna(s: str) -> bool:
+    return bool(_VALID_DNA.match(s.replace(" ", "")))
+
+def choose_long_short(a: str, b: str) -> Tuple[str, str]:
+    # Return (longer, shorter)
+    return (a, b) if len(a) >= len(b) else (b, a)
+
+
+def calculate_score(s1: str, s2: str, start: int) -> Tuple[int, str]:
+    l1, l2 = len(s1), len(s2)
     score = 0
-    marks = []
-    for i, base in enumerate(shorter):
-        j = start + i
-        if j >= len(longer):
+    matched_marks = []
+
+    # Uncomment for debugging:
+    # import ipdb; ipdb.set_trace()
+
+    for i in range(l2):
+        j = i + start
+        if j >= l1:
             break
-        if base == longer[j]:
+        if s1[j] == s2[i]:
             score += 1
-            marks.append("*")
+            matched_marks.append("*")
         else:
-            marks.append("-")
-    return score, "".join(marks)
+            matched_marks.append("-")
 
-def best_alignment(seq1: str, seq2: str) -> dict:
-    """
-    Find the best alignment between seq1 and seq2.
-    Always slides the shorter over the longer (0..len(longer)-1).
-    Returns a dict with keys: start, score, longer, shorter, match_line, aligned_longer, aligned_shorter.
-    """
-    # Ensure we treat the longer one as the "reference"
-    if len(seq1) >= len(seq2):
-        longer, shorter = seq1, seq2
-        swapped = False
-    else:
-        longer, shorter = seq2, seq1
-        swapped = True
-
-    best = {"start": 0, "score": -1, "match_line": ""}
-    for start in range(len(longer)):  # positions where the shorter's 0th base could land
-        score, marks = calculate_score(longer, shorter, start)
-        if score > best["score"]:
-            best.update({"start": start, "score": score, "match_line": marks})
-
-    # Build pretty alignment strings with padding on the shorter and match line
-    pad = " " * best["start"]
-    aligned_shorter = pad + shorter
-    aligned_longer = longer
-    # match_line must be padded to align visually under the shorter’s first char
-    match_line = pad + best["match_line"]
-
-    result = {
-        "start": best["start"],
-        "score": best["score"],
-        "longer": longer,
-        "shorter": shorter,
-        "aligned_longer": aligned_longer,
-        "aligned_shorter": aligned_shorter,
-        "match_line": match_line,
-        "swapped": swapped,
-    }
-    return result
+    return score, "".join(matched_marks)
 
 
-def read_two_seqs_from_csv(path: Path) -> tuple[str, str]:
-    """
-    Expect a CSV with header: seq1,seq2 (order can vary).
-    The first non-empty row is used.
-    """
-    with path.open(newline="") as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            s1 = clean(row.get("seq1", "")) if row.get("seq1") else ""
-            s2 = clean(row.get("seq2", "")) if row.get("seq2") else ""
-            if s1 and s2:
-                return s1, s2
-    raise ValueError("Input CSV must contain at least one row with both seq1 and seq2.")
 
-def write_alignment_text(out_path: Path, info: dict) -> None:
+def find_best_alignment(seq1: str, seq2: str) -> Tuple[str, str, int, int]:
+
+    s1, s2 = choose_long_short(seq1, seq2)
+    l1 = len(s1)
+
+    best_score = -1
+    best_align = ""
+    best_start = 0
+
+    for start in range(l1):
+        score, _ = calculate_score(s1, s2, start)
+        if score > best_score:
+            best_score = score
+            best_align = "." * start + s2
+            best_start = start
+
+    return best_align, s1, best_score, best_start
+
+
+def write_report(out_path: Path, aligned_s2: str, s1: str, score: int, start: int) -> None:
+    # Save the best alignment and score to a text file.
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    with out_path.open("w") as f:
-        f.write("# Best alignment (slide shorter along longer)\n")
-        f.write(f"# Start position on longer: {info['start']}\n")
-        f.write(f"# Score (matches): {info['score']}\n")
-        if info["swapped"]:
-            f.write("# Note: input sequences were swapped internally so that 'longer' is the longer one.\n")
-        f.write("\n")
-        f.write(info["aligned_longer"] + "\n")
-        f.write(info["match_line"] + "\n")
-        f.write(info["aligned_shorter"] + "\n")
-        f.write("\n")
-        f.write(f"Longer length:  {len(info['longer'])}\n")
-        f.write(f"Shorter length: {len(info['shorter'])}\n")
+    content = [
+        "# Best overlap alignment\n",
+        f"Start position: {start}\n",
+        f"Score (matches): {score}\n",
+        "\n",
+        aligned_s2 + "\n",
+        s1 + "\n",
+        "\n",
+        "# Legend: '.' = offset, '*' = match, '-' = mismatch (debug view)\n",
+    ]
+    out_path.write_text("".join(content), encoding="utf-8")
 
-def parse_args():
-    p = argparse.ArgumentParser(description="Align two DNA sequences from a single CSV and write best alignment.")
-    p.add_argument("--input", "-i", default="data/align_seqs.csv",
-                   help="CSV with columns seq1,seq2 (default: data/align_seqs.csv)")
-    p.add_argument("--output", "-o", default="results/best_alignment.txt",
-                   help="Text file to save best alignment (default: results/best_alignment.txt)")
-    return p.parse_args()
 
-def main():
-    args = parse_args()
-    in_path = Path(args.input)
-    out_path = Path(args.output)
 
-    s1, s2 = read_two_seqs_from_csv(in_path)
-    info = best_alignment(s1, s2)
-    write_alignment_text(out_path, info)
+def main(in_file: Optional[str] = None, out_file: Optional[str] = None) -> int:
+    here = Path(__file__).resolve().parent
+    default_in = (here / "../data/align_seqs.csv").resolve()
+    default_out = (here / "../results/best_alignment.txt").resolve()
 
-    # Console summary
-    print(f"[OK] Best alignment written to {out_path}")
-    print(f"Score: {info['score']}, start: {info['start']}")
-    print(info["aligned_longer"])
-    print(info["match_line"])
-    print(info["aligned_shorter"])
+    in_path = Path(in_file) if in_file else default_in
+    out_path = Path(out_file) if out_file else default_out
+
+    seq1, seq2 = read_two_sequences(in_path)
+    aligned_s2, s1, best_score, best_start = find_best_alignment(seq1, seq2)
+    write_report(out_path, aligned_s2, s1, best_score, best_start)
+
+    # Print summary to terminal
+    print(f"Input:  {in_path}")
+    print(f"Output: {out_path}")
+    print("Alignment:")
+    print(aligned_s2)
+    print(s1)
+    print(f"Best score: {best_score} (start={best_start})")
+    return 0
+
 
 if __name__ == "__main__":
-    main()
+
+    args = sys.argv[1:]
+    in_arg = args[0] if len(args) >= 1 else None
+    out_arg = args[1] if len(args) >= 2 else None
+    sys.exit(main(in_arg, out_arg))
