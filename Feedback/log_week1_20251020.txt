@@ -335,8 +335,8 @@ CountLines.sh: line 3: $1: ambiguous redirect
 FEEDBACK SUMMARY
 ======================================================================
 
-Scripts tested: 11
-Scripts successful: 6
+Scripts tested: 8
+Scripts successful: 3
 Scripts with errors: 5
 Warnings/Notes: 1
 
