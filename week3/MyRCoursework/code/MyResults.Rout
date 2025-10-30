@@ -1,0 +1,38 @@
+
+R version 4.3.3 (2024-02-29) -- "Angel Food Cake"
+Copyright (C) 2024 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R是自由软件，不带任何担保。
+在某些条件下你可以将其自由散布。
+用'license()'或'licence()'来看散布的详细条件。
+
+R是个合作计划，有许多人为之做出了贡献.
+用'contributors()'来看合作者的详细情况
+用'citation()'会告诉你如何在出版物中正确地引用R或R程序包。
+
+用'demo()'来看一些示范程序，用'help()'来阅读在线帮助文件，或
+用'help.start()'通过HTML浏览器来看帮助文件。
+用'q()'退出R.
+
+[原来保存的工作空间已还原]
+
+> # A simple script to illustrate R input-output.  
+> # Run line by line and check inputs outputs to understand what is happening  
+> 
+> MyData <- read.csv("../data/trees.csv", header = TRUE) # import with headers
+> 
+> write.csv(MyData, "../results/MyData.csv") #write it out as a new file
+> 
+> write.table(MyData[1,], file = "../results/MyData.csv",append=TRUE) # Append to it
+Warning message:
+In write.table(MyData[1, ], file = "../results/MyData.csv", append = TRUE) :
+  给文件加列名
+> 
+> write.csv(MyData, "../results/MyData.csv", row.names=TRUE) # write row names
+> 
+> write.table(MyData, "../results/MyData.csv", col.names=FALSE) # ignore column names
+> 
+> proc.time()
+ 用户  系统  流逝 
+0.118 0.037 0.143 
