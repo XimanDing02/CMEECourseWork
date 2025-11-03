@@ -12,4 +12,3 @@ print (RowVars)
 ## By column
 ColMeans <- apply(M, 2, mean)
 print (ColMeans)
-
