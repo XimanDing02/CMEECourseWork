@@ -1,13 +1,23 @@
 #!/bin/sh
-# Author: Your name you.login@imperial.ac.uk
+# Author: Ximan Ding
 # Script: tabtocsv.sh
-# Description: substitute the tabs in the files with commas
-#
-# Saves the output into a .csv file
-# Arguments: 1 -> tab delimited file
-# Date: Oct 2019
+# Desc: Substitute tabs with commas in a file, saving as .csv
+# Usage: bash tabtocsv.sh <tab_delimited_file>
+# Date: Nov 2025
 
-echo "Creating a comma delimited version of $1 ..."
-cat $1 | tr -s "\t" "," >> $1.csv
-echo "Done!"
-exit
+# check the parameters
+if [ $# -ne 1 ]; then
+    echo "Usage: bash $0 <tab_delimited_file>"
+    return 0 2>/dev/null || exit 0
+fi
+
+in="$1"
+if [ ! -f "$in" ]; then
+    echo "Error: '$in' not found or not a regular file."
+    return 0 2>/dev/null || exit 0
+fi
+
+out="${in%.*}.csv"
+echo "Creating a comma-delimited version of $in ..."
+tr -s "\t" "," < "$in" > "$out"
+echo "Done: $out"

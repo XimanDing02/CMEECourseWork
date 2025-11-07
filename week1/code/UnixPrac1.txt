@@ -4,17 +4,17 @@ wc -l ../data/fasta/*.fasta
 
 # 2 Print everything starting from the second line for the E. coli genome
 # tail -n +2 means print from second line to the end.
-tail -n +2 ../data/fasta/E_coli.fasta
+tail -n +2 ../data/fasta/E.coli.fasta
 
 # 3 Count the sequence length of this genome
 # tr -d '\n' which removes all newline characters; wc -m counts all characters.
-tail -n +2 ../data/fasta/E_coli.fasta | tr -d '\n' | wc -m
+tail -n +2 ../data/fasta/E.coli.fasta | tr -d '\n' | wc -m
 
 # 4 Count the matches of “ATGC” in the E. coli genome
 # grep -o "ATGC" searches for every exact match of "ATGC" and prints each match on a new line.
-tail -n +2 ../data/fasta/E_coli.fasta | tr -d '\n' | grep -o "ATGC" | wc -l
+tail -n +2 ../data/fasta/E.coli.fasta | tr -d '\n' | grep -o "ATGC" | wc -l
 
 # 5 Compute the (A+T)/(G+C) ratio
 # awk is to count A, T, G, C bases and compute (A+T)/(G+C) ratio.
-tail -n +2 ../data/fasta/E_coli.fasta | tr -d '\n' | \
+tail -n +2 ../data/fasta/E.coli.fasta | tr -d '\n' | \
 awk '{seq=$0; A=gsub(/A/, "", seq); T=gsub(/T/, "", seq); G=gsub(/G/, "", seq); C=gsub(/C/, "", seq); print (A+T)/(G+C)}'
