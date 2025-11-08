@@ -1,15 +1,102 @@
-# Week 1 – Introduction to UNIX, Shell scripting, and LaTeX
+# Week 1 – UNIX, Shell scripting, Git and LaTeX
 
-## README.md File Introduction and Explanation
-Before moving into the main content, I would like to briefly introduce the README.md file. This file includes the whole course structure and learning goals of each week, also contains what we did and our understanding of what we did, which is the most important part in this document. 
+## Table of Contents
+- [**Week 1** – Introduction to UNIX, Shell scripting, and LaTeX](#week-1--introduction-to-unix-shell-scripting-and-latex)
+- [**UNIX and Linux**](#unix-and-linux)
+- [**Shell scripting**](#shell-scripting)
+- [**Git**](#git)
+- [**LaTeX**](#latex)
 
-This README.md file is only for week1 learning and it is inside the week1 folder. Each week will have its own README.md file, which can be easily found in each week’s folder. Alongside these weekly files, there is an overarching README.md file within the course's main directory (CMEECourseWork/), which summarises the whole course structure and main learning goals.
+## Project Structure
+This whole week1 structure is:
+```plaintext
+./CMEECourseWork/
+│
+└── week1/
+    ├── code/
+    │   ├── UnixPrac1.txt
+    │   ├── shell_scripting_practice.sh
+    │   ├──
 
-## Week 1 Overview and Purpose
-Week 1 indicates the introduction of **UNIX/Linux commands**, **Shell scripting**, **Git version control**, and **LaTeX**, which are foundational computational tools used throughout our CMEE course. The main goal for this week is to gain familiarity with these tools.
+    │   ├── git_commands.txt
+    │   ├── latex_example.tex
+    │   └── notes.md
+    │
+    ├── data/
+    │   ├── spawannxs.txt
+    │   └── fasta/
+    │       └── ecoli.fasta
+    │
+    ├── results/
+    │   ├── grep_results.txt
+    │   ├── ListRootDir.txt
+    │   └── AT_GC_ratio.txt
+    │
+    ├── sandbox/
+    │   ├── TestWild/
+    │   ├── TestFind/
+    │   ├── test.txt
+    │   └── temporary_files/
+    │
+    └── README.md
+```
+
+## Brief Description
+
+This week introduces foundational computing tools:
+
+1. Unix and Linux command
+2. Basic shell scripting and file manipulation
+3. Version control with Git
+4. LaTex to do some of the scientific writing
+5. These works are based on the Notebook and Data from https://github.com/mhasoba/TheMulQuaBio.git.
+
+## Languages
+```
+Bash, Unix Shell, Shell script, Git, LaTeX
+```
+
+## **Installation**
+```
+Ensure that you are using a UNIX-based environment.
+
+git clone https://github.com/XimanDing02/CMEECourseWork.git
+```
+
+## **Dependencies** 
+
+Most of the scripts in the current repository can be ran in bash shell directly. One of the scripts `tiff2png.sh` needs the imagemagick. 
+
+Installation: `sudo apt install imagemagick` (Run in the terminal)
+
+## Usage
+Example commands:
+```
+# 
+```
+
+## Author and Contact
+Name: Ximan Ding
+Email: x.ding25@imperial.ac.uk
+Institution: Imperial College London
+
+
+## **Project structure and Usage**
+
+
+### **(1) Repo Structure introduction**
+
+Each week’s directory contain directories called `code`, `data`, `results`, and `sandbox` 
+
+`code`: directory to put the scripts (`e.g. *.sh`)
+
+`Data`: directory to put some of the input file (`e.g. *.fasta`)
+
+`results` : directory for output
 
 ##  UNIX and Linux
 This is the first part of this week. In this section, we learned to write commands within UNIX/Linux,  and practiced a range of basic terminal commands to make myself be more and more familiar with the terminal (because terminal is quite a new thing to me). The goal for this week was to understand directory structures, file management, command and how to combine commands efficiently using pipes and redirection.
+
 
 ### What I did
 We started by understanding the UNIX system and building my CMEECoureseWork/week1 directory with sub-directories (code, data, result and sandbox). Then we learned how to navigate through the file system, use Linux command to create, move and manage files. We also practiced combining commands with pipes and redirection to handle tasks more efficiently.

@@ -1,6 +1,8 @@
-#!/bin/sh
-
-## Illustrates the use of variables 
+#!/bin/bash
+# Author: Ximan Ding
+# Script: variables.sh
+# Desc: Demonstrates variable usage and user input
+# Date: Nov 2025
 
 # Special variables
 echo "This script was called with $# parameters"
@@ -8,37 +10,30 @@ echo "The script's name is $0"
 echo "The arguments are $@"
 echo "The first argument is $1"
 echo "The second argument is $2"
-
-# Assigned Variables; Explicit declaration:
-MY_VAR='some string' 
-echo "The current value of the variable is: $MY_VAR"
 echo
-echo "Please enter a new string (or press Enter to keep the same):"
-read NEW_VAR
 
-# If no new content is entered, retain the original value.
+# Explicit variable
+MY_VAR='some string'
+echo "The current value of MY_VAR is: $MY_VAR"
+echo
+read -p "Enter a new string (or press Enter to keep the same): " NEW_VAR
+
 if [ -n "$NEW_VAR" ]; then
     MY_VAR="$NEW_VAR"
 fi
 
 echo
-echo "The current value of the variable is: $MY_VAR"
+echo "Now MY_VAR is: $MY_VAR"
 echo
 
-## Assigned Variables; Reading (multiple values) from user input:
-echo "Enter two numbers separated by space(s):"
-read a b
-
-# If no value is entered, set the default value.
+# Read two numbers
+read -p "Enter two numbers separated by space(s): " a b
 if [ -z "$a" ] || [ -z "$b" ]; then
     echo "No input detected, using default values 0 and 0."
     a=0
     b=0
 fi
 
+MY_SUM=$((a + b))
 echo
-echo "You entered $a and $b; their sum is:"
-
-## Assigned Variables; Command substitution
-MY_SUM=$(expr $a + $b)
-echo "$MY_SUM"
+echo "You entered $a and $b; their sum is: $MY_SUM"

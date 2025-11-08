@@ -11,7 +11,7 @@ tif_files=(*.tif)
 
 if [ ${#tif_files[@]} -eq 0 ]; then
     echo "No .tif files found in the current directory."
-    return 0 2>/dev/null || exit 0
+    exit 0
 fi
 
 # Loop through and convert
@@ -21,5 +21,4 @@ for f in "${tif_files[@]}"; do
 done
 
 echo "Conversion complete."
-# exit
-return 0 2>/dev/null || exit 0
+exit 0
