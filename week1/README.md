@@ -10,7 +10,7 @@
   - [**UNIX and Linux**](#unix-and-linux)
   - [**Shell scripting**](#shell-scripting)
   - [**Git**](#git)
-  - [**LaTeX**](#latex)# Week 1 – UNIX, Shell scripting, Git and LaTeX
+  - [**LaTeX**](#latex)
 
 ## Project Structure
 This whole week1 structure is:
@@ -124,7 +124,7 @@ Example commands:
 ```
 # You are now in CMEECourseWork
 cd ~/CMEECourseWork/week1/code
-bash UniPrac1.txt
+bash UnixPrac1.txt
 ```
 
 ## Shell scripting
@@ -135,7 +135,7 @@ I wrote several shell scripts following the instructions in the book. And I woul
 
 1. **boilerplate.sh** 
 
-This ia a simple starting template for shell script template with author information, date (I put my information into this shell script), and a short description. When bash it, it shows: This is a shell script! 
+This is a simple starting template for shell script template with author information, date (I put my information into this shell script), and a short description. When bash it, it shows: This is a shell script! 
 
 ```
 # Basic Usage
@@ -189,7 +189,7 @@ bash CountLines.sh ../data/test.txt
 
 6. **ConcatenateTwoFiles.sh**
 
-ombines the contents of two files into a third one using `cat`. 
+Combines the contents of two files into a third one using `cat`. 
 
 ```
 # Basic Usage
