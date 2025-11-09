@@ -34,5 +34,5 @@ code/FirstExample.log
 !code/FirstExample.tex
 !code/FirstBiblio.bib
 
-code/.Rhistory
-code/.csv
+code/*.Rhistory
+code/*.csv
