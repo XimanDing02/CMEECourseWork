@@ -10,35 +10,38 @@
 ## Project Structure
 This whole week1 structure is:
 ```plaintext
-./CMEECourseWork/
+./week1/
 │
-└── week1/
-    ├── code/
-    │   ├── UnixPrac1.txt
-    │   ├── shell_scripting_practice.sh
-    │   ├──
-
-    │   ├── git_commands.txt
-    │   ├── latex_example.tex
-    │   └── notes.md
-    │
-    ├── data/
-    │   ├── spawannxs.txt
-    │   └── fasta/
-    │       └── ecoli.fasta
-    │
-    ├── results/
-    │   ├── grep_results.txt
-    │   ├── ListRootDir.txt
-    │   └── AT_GC_ratio.txt
-    │
-    ├── sandbox/
-    │   ├── TestWild/
-    │   ├── TestFind/
-    │   ├── test.txt
-    │   └── temporary_files/
-    │
-    └── README.md
+├── code/
+│   ├── UnixPrac1.txt
+│   ├── boilerplate.sh
+│   ├── variables.sh
+│   ├── MyExampleScript.sh
+│   ├── CountLines.sh
+│   ├── tabtocsv.sh
+│   ├── csvtospace.sh
+│   ├── ConcatenateTwoFiles.sh
+│   ├── tiff2png.sh
+│   ├── FirstExample.tex
+│   ├── FirstBiblio.bib
+│   └── CompileLaTeX.sh
+│
+├── data/
+│   ├── fasta/
+│   │   ├── 407228326.fasta
+│   │   ├── 407228412.fasta
+│   │   └── E.coli.fasta
+│   ├── Temperatures/
+│   │   ├── sample1.csv
+│   │   ├── sample2.csv
+│   │   └── sample1.space
+│   └── spawannxs.txt
+│
+├── results/
+│   └── (currently empty — will store output from scripts)
+│
+└── sandbox/
+    └── (temporary files for command testing, excluded via .gitignore)
 ```
 
 ## Brief Description

@@ -1,37 +1,29 @@
-# 忽略临时文件
+# ignore some temporary files
 *.log
 *.tmp
 *.bak
 
-# 忽略LaTeX编译生成文件
+# ignore the files computed by LaTeX
 *.aux
 *.out
 *.toc
 *.pdf
 
-# 忽略Python缓存文件
+# ignore python doc
 __pycache__/
 *.pyc
 
-# 忽略VSCode配置
+# igonre VSCode
 .vscode/
 
-# 忽略备份和测试文件
+# ignore sandbox
 sandbox/
 backup/
-result/
 
-# 忽略数据文件
-data/*.csv
-
-
-data/spawannxs.txt
-data/Temperatures/
-
+# ignore the direct files in week1 code/ data/
 code/myscript.sh
 code/test1.png
 code/test1.tif
-code/MyExampleScript.sh
 code/FirstExample.blg
 code/FirstExample.bbl
 code/FirstExample.aux
