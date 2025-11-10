@@ -1,63 +1,57 @@
-# cfexercises2.py
-# This is only the code file.
-# All my understanding of these code below, with my prediction of how many hello will be printed, are shown in my week2 readme file. 
-########################
-def hello_1(x):
-    for j in range(x):
-        if j % 3 == 0:
-            print('hello')
-    print(' ')
+#!/usr/bin/env python3
+"""
+Script Name: rainfall_lc.py
+Description: 
+    This script demonstrates the use of list comprehensions and 
+    traditional for-loops to process rainfall data for the UK in 1910. 
+    It identifies:
+        (1) Months with rainfall greater than 100 mm.
+        (2) Months with rainfall less than 50 mm.
+Author: Ximan Ding (x.ding25@imperial.ac.uk)
+Version: 0.1
+License: MIT
+Date: Oct 2025
+"""
 
-hello_1(12)
+# DATA: Average UK Rainfall (mm) for 1910 by month
+# Source: http://www.metoffice.gov.uk/climate/uk/datasets
+rainfall = (
+    ('JAN', 111.4),
+    ('FEB', 126.1),
+    ('MAR', 49.9),
+    ('APR', 95.3),
+    ('MAY', 71.8),
+    ('JUN', 70.2),
+    ('JUL', 97.1),
+    ('AUG', 140.2),
+    ('SEP', 27.0),
+    ('OCT', 89.4),
+    ('NOV', 128.4),
+    ('DEC', 142.2),
+)
 
-########################
-def hello_2(x):
-    for j in range(x):
-        if j % 5 == 3:
-            print('hello')
-        elif j % 4 == 3:
-            print('hello')
-    print(' ')
+# (1) Using list comprehensions
+rainfall_over_100 = [(month, mm) for (month, mm) in rainfall if mm > 100]
+rainfall_under_50 = [month for (month, mm) in rainfall if mm < 50]
 
-hello_2(12)
+print("Step #1:")
+print("Months and rainfall values when the amount of rain was greater than 100 mm:")
+print(rainfall_over_100)
+print("Months with rainfall less than 50 mm:")
+print(rainfall_under_50)
 
-########################
-def hello_3(x, y):
-    for i in range(x, y):
-        print('hello')
-    print(' ')
+# (2) Using traditional loops
+rainfall_over_100_loop = []
+rainfall_under_50_loop = []
 
-hello_3(3, 17)
+for month, mm in rainfall:
+    if mm > 100:
+        rainfall_over_100_loop.append((month, mm))
+    elif mm < 50:
+        rainfall_under_50_loop.append(month)
 
-########################
-def hello_4(x):
-    while x != 15:
-        print('hello')
-        x = x + 3
-    print(' ')
-
-hello_4(0)
-
-########################
-def hello_5(x):
-    while x < 100:
-        if x == 31:
-            for k in range(7):
-                print('hello')
-        elif x == 18:
-            print('hello')
-        x = x + 1
-    print(' ')
-
-hello_5(12)
-
-# WHILE loop with BREAK
-def hello_6(x, y):
-    while x: # while x is True
-        print("hello! " + str(y))
-        y += 1 # increment y by 1 
-        if y == 6:
-            break
-    print(' ')
-
-hello_6 (True, 0)
+print("\nStep #2:")
+print("Months and rainfall values when the amount of rain was greater than 100 mm (loop version):")
+print(rainfall_over_100_loop)
+print("Months with rainfall less than 50 mm (loop version):")
+print(rainfall_under_50_loop)

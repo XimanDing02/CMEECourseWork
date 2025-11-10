@@ -264,6 +264,9 @@ bash CompileLaTeX.sh ../data/FirstExample.tex
 ```
 
 ## Author and Contact
+
 Name: Ximan Ding
+
 Email: x.ding25@imperial.ac.uk
+
 Institution: Imperial College London

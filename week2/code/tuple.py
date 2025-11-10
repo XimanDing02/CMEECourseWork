@@ -1,44 +1,43 @@
-# tuple.py
-# Only code in here, understanding of the code are in readme file.
-MyTuple = ("a", "b", "c")
-print(MyTuple)
+#!/usr/bin/env python3
+"""
+Description:
+    This program prints information about a set of bird species.
+    Each record includes the Latin name, common name, and average mass.
+    The script demonstrates unpacking tuples and formatted printing.
+"""
 
-print(type(MyTuple))
+__appname__ = 'bird_info_printer'
+__author__ = 'Ximan Ding (x.ding25@imperial.ac.uk)'
+__version__ = '1.0.0'
+__license__ = 'MIT'
 
-MyTuple[0]
-print(len(MyTuple))
+## Constants ##
+birds = (
+    ('Passerculus sandwichensis', 'Savannah sparrow', 18.7),
+    ('Delichon urbica', 'House martin', 19),
+    ('Junco phaeonotus', 'Yellow-eyed junco', 19.5),
+    ('Junco hyemalis', 'Dark-eyed junco', 19.6),
+    ('Tachycineata bicolor', 'Tree swallow', 20.2),
+)
 
-FoodWeb=[('a','b'),('a','c'),('b','c'),('c','c')]
-print(FoodWeb)
+## Functions ##
+def print_bird_info(bird_data):
+    """Print each bird's information (Latin name, common name, and mass)."""
+    for latin_name, common_name, mass in bird_data:
+        print(f"Latin name: {latin_name}\n"
+              f"Common name: {common_name}\n"
+              f"Mass: {mass}\n")
 
-print(FoodWeb[0])
 
-print(FoodWeb[0][0])
+## Main ##
+def main(argv):
+    """Main entry point of the program."""
+    print("Bird Information:\n")
+    print_bird_info(birds)
+    return 0
 
-FoodWeb[0] = ("bbb","ccc") 
 
-a = (1, 2, []) 
-print(a)
-
-a[2].append(1000)
-print(a)
-
-a[2].append(1000)
-print(a)
-
-a[2].append((100,10))
-print(a)
-
-a = (1, 2, 3)
-
-b = a + (4, 5, 6)
-print(b)
-
-c = b[1:]
-print(c)
-
-b = b[1:]
-print(b)
-
-a = ("1", 2, True)
-print(a)
+if __name__ == "__main__":
+    import sys
+    status = main(sys.argv)
+    sys.exit(status)
