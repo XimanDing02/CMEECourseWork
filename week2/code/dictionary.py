@@ -1,21 +1,21 @@
 #!/usr/bin/env python3
+
 """
-Description:
-    This program creates a dictionary mapping mammalian order names to sets of species.
-    It demonstrates two approaches:
-        1. Using a conventional for loop
-        2. Using dictionary and set comprehensions
+Auther: Ximan Ding (x.ding25@imperial.ac.uk)
+Script: dictionary.py
+Des: Create a dictionary that maps taxonomic orders to sets of species
+     using both conventional loops and list comprehensions.
+Usage: python3 dictionary.py (in terminal)
+Date: Nov, 2025
 """
 
-__appname__ = 'taxa_dictionary'
+# Docstrings are considered part of the running code (normal comments are
+# stripped). Hence, you can access your docstrings at run time.
+
 __author__ = 'Ximan Ding (x.ding25@imperial.ac.uk)'
-__version__ = '1.0.0'
-__license__ = 'MIT'
+__version__ = '0.0.1'
 
-## Imports ##
-# (No external libraries needed for this task)
-
-## Constants ##
+# Constants
 taxa = [
     ('Myotis lucifugus', 'Chiroptera'),
     ('Gerbillus henleyi', 'Rodentia'),
@@ -29,13 +29,15 @@ taxa = [
     ('Canis lupus', 'Carnivora'),
 ]
 
-## Functions ##
+# Functions
 def build_taxa_dict_loop(taxa_list):
     """Create a dictionary mapping order names to sets of species using a loop."""
     taxa_dic = {}
+    # Loop through each (species, order) pair
     for species, order in taxa_list:
         if order not in taxa_dic:
             taxa_dic[order] = set()
+            # Add the species to the corresponding set
         taxa_dic[order].add(species)
     return taxa_dic
 

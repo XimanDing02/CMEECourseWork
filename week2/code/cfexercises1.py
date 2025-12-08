@@ -86,17 +86,21 @@ def main(argv):
     """
     Main entry point of the program.
     """
-    print("Testing foo_x functions...")
+    print("Testing foo_x functions...\n")
 
+    # Test calls (like in control_flow.py) to show that each function works
     print("foo_1(9) =", foo_1(9))
     print("foo_2(10, 5) =", foo_2(10, 5))
     print("foo_3(9, 3, 6) =", foo_3(9, 3, 6))
+
     print("foo_4(5) =", foo_4(5))
     print("foo_5(5) =", foo_5(5))
+    # Extra test argument as required in the instructions
+    print("foo_5(10) =", foo_5(10))
+
     print("foo_6(5) =", foo_6(5))
 
     return 0
-
 
 if __name__ == "__main__":
     """

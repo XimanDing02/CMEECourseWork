@@ -1,17 +1,19 @@
 #!/usr/bin/env python3
+
 """
-Script Name: rainfall_lc.py
-Description: 
-    This script demonstrates the use of list comprehensions and 
-    traditional for-loops to process rainfall data for the UK in 1910. 
-    It identifies:
-        (1) Months with rainfall greater than 100 mm.
-        (2) Months with rainfall less than 50 mm.
-Author: Ximan Ding (x.ding25@imperial.ac.uk)
-Version: 0.1
-License: MIT
-Date: Oct 2025
+Auther: Ximan Ding (x.ding25@imperial.ac.uk)
+Script: lc2.py
+Des: Practice of list comprehensions and conventional loops using
+     UK monthly rainfall data.
+Usage: python3 lc2.py (in terminal)
+Date: Oct, 2025
 """
+
+# Docstrings are considered part of the running code (normal comments are
+# stripped). Hence, you can access your docstrings at run time.
+
+__author__ = 'Ximan Ding (x.ding25@imperial.ac.uk)'
+__version__ = '0.0.1'
 
 # DATA: Average UK Rainfall (mm) for 1910 by month
 # Source: http://www.metoffice.gov.uk/climate/uk/datasets

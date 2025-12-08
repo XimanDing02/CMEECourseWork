@@ -1,17 +1,21 @@
 #!/usr/bin/env python3
+
 """
-Description:
-    This program prints information about a set of bird species.
-    Each record includes the Latin name, common name, and average mass.
-    The script demonstrates unpacking tuples and formatted printing.
+Auther: Ximan Ding (x.ding25@imperial.ac.uk)
+Script: tuple.py
+Des: Print information about bird species stored in a tuple of tuples.
+Usage: python3 tuple.py (in terminal)
+Date: Nov, 2025
 """
 
-__appname__ = 'bird_info_printer'
+# Docstrings are considered part of the running code (normal comments are
+# stripped). Hence, you can access your docstrings at run time.
+
 __author__ = 'Ximan Ding (x.ding25@imperial.ac.uk)'
-__version__ = '1.0.0'
-__license__ = 'MIT'
+__version__ = '0.0.1'
 
-## Constants ##
+# Birds is a tuple of tuples of length three:
+# (Latin name, common name, mean body mass)
 birds = (
     ('Passerculus sandwichensis', 'Savannah sparrow', 18.7),
     ('Delichon urbica', 'House martin', 19),

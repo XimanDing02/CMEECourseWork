@@ -1,31 +1,35 @@
 #!/usr/bin/env python3
-"""A debugging example script that demonstrates specific exception handling."""
 
-__appname__ = 'debugme.py'
+"""
+Auther: Ximan Ding (x.ding25@imperial.ac.uk)
+Script: debugme.py
+Des: Example script for debugging and demonstrating a ZeroDivisionError
+Usage: python3 debugme.py (in terminal)
+Date: Nov, 2025
+"""
+
+# Docstrings are considered part of the running code (normal comments are
+# stripped). Hence, you can access your docstrings at run time.
+
 __author__ = 'Ximan Ding (x.ding25@imperial.ac.uk)'
-__version__ = '0.0.3'
-__license__ = "License for this code/program"
+__version__ = '0.0.1'
 
 def buggyfunc(x):
-    """Demonstrates try/except/else blocks with specific error handling."""
+    """
+    Demonstrates try/except/else blocks with specific error handling.
+    """
     y = x
+    # Decrease y by 1 for x iterations
     for i in range(x):
-        try:
+        try: 
             y = y - 1
             z = x / y
         except ZeroDivisionError:
-            print("The result of dividing a number by zero is undefined")
-        except Exception:
-            print(f"This didn't work; {x = }; {y = }")
+            print(f"The result of dividing a number by zero is undefined")
+        except:
+            print(f"This didn't work; x = {x}; y = {y}")
         else:
-            print(f"OK; {x = }; {y = }, {z = }")
+            print(f"OK; x = {x}; y = {y}, z = {z};")
     return z
 
-def main():
-    """Main entry point."""
-    result = buggyfunc(20)
-    print(f"\nFinal result: {result}")
-    return 0
-
-if __name__ == "__main__":
-    main()
+buggyfunc(20)

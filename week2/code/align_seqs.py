@@ -1,21 +1,21 @@
 #!/usr/bin/env python3
-#!/usr/bin/env python3
+
+"""
+Auther: Ximan Ding (x.ding25@imperial.ac.uk)
+Script: align_seqs.py
+Des: Align two DNA sequences read from an external file and save the best
+     alignment and its corresponding score to an output file.
+Usage: python3 align_seqs.py (in terminal)
+Date: Nov, 2025
+"""
 from __future__ import annotations
-"""
-align_seqs.py
 
-This program reads two DNA sequences from an input CSV file,
-finds the best alignment (highest number of matching bases),
-and writes the best alignment and score to a results text file.
+# Docstrings are considered part of the running code (normal comments are
+# stripped). Hence, you can access your docstrings at run time.
 
-Usage:
-    python3 align_seqs.py
-"""
+__author__ = 'Ximan Ding (x.ding25@imperial.ac.uk)'
+__version__ = '0.0.1'
 
-__appname__ = "align_seqs"
-__author__ = "Ximan Ding (x.ding25@imperial.ac.uk)"
-__version__ = "1.0.0"
-__license__ = "MIT"
 from pathlib import Path
 import csv
 import re

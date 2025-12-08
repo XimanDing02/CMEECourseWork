@@ -1,108 +1,112 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""Extract only oak species (Quercus) from a CSV file."""
 
-__appname__ = "oaks_debugme"
-__author__ = "Your Name (your.email@address)"
-__version__ = "1.0.0"
-__license__ = "MIT"
+"""
+Auther: Ximan Ding (x.ding25@imperial.ac.uk)
+Script: oaks_debugme.py
+Des: Read a CSV file of tree taxa, detect oaks (genus Quercus),
+     and write only oak records to an output CSV. Includes doctests
+     for the oak-detection function.
+Usage: python3 oaks_debugme.py (in terminal)
+Date: Nov, 2025
+"""
+
+# Docstrings are considered part of the running code (normal comments are
+# stripped). Hence, you can access your docstrings at run time.
+
+__author__ = 'Ximan Ding (x.ding25@imperial.ac.uk)'
+__version__ = '0.0.1'
 
 import csv
 import sys
-import re
-from typing import Iterable
-
-def _levenshtein_dist(a: str, b: str) -> int:
-    la, lb = len(a), len(b)
-    dp = list(range(lb + 1))
-    for i in range(1, la + 1):
-        prev, dp[0] = dp[0], i
-        for j in range(1, lb + 1):
-            cur = dp[j]
-            cost = 0 if a[i - 1] == b[j - 1] else 1
-            dp[j] = min(
-                dp[j] + 1,        # deletion
-                dp[j - 1] + 1,    # insertion
-                prev + cost       # substitution
-            )
-            prev = cur
-    return dp[lb]
-
-def _first_alpha_token(name: str) -> str:
-    
-    # Keep only letters and separators as spaces, then split
-    cleaned = re.sub(r"[^A-Za-z]+", " ", name).strip()
-    return cleaned.split()[0] if cleaned else ""
+import doctest
 
 def is_an_oak(name: str) -> bool:
     """
-    Return True if the input belongs to genus Quercus (oak).
-    Robust to common typos such as 'Quercuss' (one extra 's') and to
-    case/whitespace/punctuation noise.
+    Return True if the taxon name belongs to genus 'Quercus'.
 
-    The logic:
-      - Take the first alphabetic token as the genus candidate.
-      - Exact match 'quercus' => True
-      - Otherwise, allow Levenshtein distance <= 1 to 'quercus'.
+    The function should correctly identify oaks and reject non-oaks,
+    including simple typos like 'Quercuss'.
 
+    Examples
+    --------
+    >>> is_an_oak('Quercus')
+    True
     >>> is_an_oak('Quercus robur')
     True
     >>> is_an_oak('quercus petraea')
     True
-    >>> is_an_oak(' Quercuss  cerris ')
+    >>> is_an_oak('Quercus, robur')
     True
+    >>> is_an_oak('Quercuss robur')   # typo, should NOT be treated as oak
+    False
     >>> is_an_oak('Fagus sylvatica')
     False
-    >>> is_an_oak('Pinus')
+    >>> is_an_oak('Fraxinus')
     False
-    >>> is_an_oak('Quercus')
-    True
-    >>> is_an_oak("Q. robur")  # not strictly the full genus, should be False here
-    False
-    >>> is_an_oak("Quercu")    # missing 's' => distance 1 -> True by our tolerant rule
-    True
     """
-    token = _first_alpha_token(name).lower()
-    if not token:
+    # Clean whitespace and split off any commas or extra species names
+    cleaned = name.strip()
+    if not cleaned:
         return False
-    if token == "quercus":
-        return True
-    # allow one edit away (handles 'quercuss', 'quercu', 'quer cus' etc.)
-    return _levenshtein_dist(token, "quercus") <= 1
 
-def filter_oaks(rows: Iterable[Iterable[str]]) -> Iterable[tuple[str, str]]:
- 
-    for row in rows:
-        if not row:
-            continue
-        genus = row[0].strip()
-        if genus.lower() == "genus":
-            # header row
-            continue
-        species = row[1].strip() if len(row) > 1 else ""
-        if is_an_oak(genus):
-            yield (genus, species)
+    # Take first part before comma, then first word (genus)
+    first_field = cleaned.split(",")[0]
+    genus = first_field.split()[0]
+
+    # Check whether the genus is exactly 'quercus' (case-insensitive)
+    return genus.lower() == "quercus"
+
 
 def main(argv):
-    in_path = "../data/TestOaksData.csv"
-    out_path = "../data/JustOaksData.csv"  
+    """
+    Main entry point of the program.
 
-    with open(in_path, "r", newline="", encoding="utf-8") as f, \
-         open(out_path, "w", newline="", encoding="utf-8") as g:
-        reader = csv.reader(f)
-        writer = csv.writer(g)
+    Reads taxa from '../data/TestOaksData.csv' and writes only
+    the oak records to '../data/JustOaksData.csv'.
+    """
+    in_path = '../data/TestOaksData.csv'
+    out_path = '../data/JustOaksData.csv'
 
-        for row in reader:
-            # Optional: print for debugging
-            # print(row)
-            # print("The genus is:", row[0] if row else "")
-            for genus, species in filter_oaks([row]):
-                # Found an oak
-                # print("FOUND AN OAK!")
-                writer.writerow([genus, species])
+    # Open input and output CSV files safely using 'with'
+    with open(in_path, 'r', newline='') as f, open(out_path, 'w', newline='') as g:
+        taxa = csv.reader(f)
+        csvwrite = csv.writer(g)
+
+        oaks = set()
+
+        for i, row in enumerate(taxa):
+            # Skip completely empty rows
+            if not row:
+                continue
+
+            genus = row[0].strip()
+
+            # Skip header row if present (e.g. "Genus, species")
+            if i == 0 and genus.lower() == "genus":
+                continue
+
+            print(row)
+            print("The genus is:")
+            print(genus + '\n')
+
+            if is_an_oak(genus):
+                print('FOUND AN OAK!\n')
+                oaks.add(genus)
+                # Write genus + species (if species column exists)
+                if len(row) > 1:
+                    csvwrite.writerow([row[0], row[1]])
+                else:
+                    csvwrite.writerow(row)
+
+    print(f"Finished. Number of unique oak genera found: {len(oaks)}")
+    print("Oaks found:", oaks)
 
     return 0
 
+
 if __name__ == "__main__":
-    # To run doctests:  python3 -m doctest -v oaks_debugme.py
-    sys.exit(main(sys.argv))
+    # Run doctests first to ensure is_an_oak behaves as expected
+    doctest.testmod(verbose=False)
+
+    status = main(sys.argv)
+    sys.exit(status)
