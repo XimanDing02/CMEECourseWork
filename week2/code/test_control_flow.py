@@ -18,7 +18,7 @@ def even_or_odd(x=0):
     >>> even_or_odd(5)
     '5 is Odd!'
         
-    in case of negative numbers, the positive is taken:    
+    In case of negative numbers, the positive is taken:    
     >>> even_or_odd(-2)
     '-2 is Even!'
     """
@@ -28,15 +28,10 @@ def even_or_odd(x=0):
     return f"{x} is Odd!"
 
 
-def main(argv):
-    """Main function to demonstrate function output"""
+if __name__ == "__main__":
+    # Run doctests
+    doctest.testmod(verbose=True)
+
+    # Optional: manual prints (not needed for doctest, just for demonstration)
     print(even_or_odd(22))
     print(even_or_odd(33))
-    return 0
-
-
-if __name__ == "__main__":
-    status = main(sys.argv)
-
-# Run the doctest embedded in the docstring
-doctest.testmod()

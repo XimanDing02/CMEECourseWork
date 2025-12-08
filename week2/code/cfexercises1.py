@@ -1,19 +1,46 @@
-# This is only the code file.
-# All my understanding of these code below are shown in my week2 readme file. 
-# cfexercises1.py
+#!/usr/bin/env python3
+
+"""
+Author: Ximan Ding (x.ding25@imperial.ac.uk)
+Script: cfexercises1.py
+Description: A collection of small example functions used to practise
+             conditionals, loops, and basic control flow in Python.
+Usage: python3 cfexercises1.py (in terminal)
+Date: Nov, 2025
+"""
+
+# Docstrings are considered part of the running code (normal comments are
+# stripped). Hence, you can access your docstrings at run time using
+# cfexercises1.__doc__, foo_1.__doc__, etc.
+
+__author__ = "Ximan Ding (x.ding25@imperial.ac.uk)"
+__version__ = "0.0.1"
+
+## imports ##
+import sys
+
+## functions ##
 
 def foo_1(x):
-    # given by the question
+    """
+    Return the square root of x.
+    """
     return x ** 0.5
 
+
 def foo_2(x, y):
-    # given by the question
+    """
+    Return the larger value between x and y.
+    """
     if x > y:
         return x
     return y
 
+
 def foo_3(x, y, z):
-    # given by the question
+    """
+    Return the numbers x, y and z sorted in ascending order.
+    """
     if x > y:
         x, y = y, x
     if x > z:
@@ -22,21 +49,30 @@ def foo_3(x, y, z):
         y, z = z, y
     return [x, y, z]
 
+
 def foo_4(x):
-    # given by the question
+    """
+    Compute factorial of x using a for loop.
+    """
     result = 1
     for i in range(1, x + 1):
         result = result * i
     return result
 
-def foo_5(x): # a recursive function that calculates the factorial of x
-    # It seperately handles the base case when x is 0 or 1, returning 1 in those cases.
+
+def foo_5(x):
+    """
+    Compute factorial of x recursively (handles x = 0 and 1).
+    """
     if x == 0 or x == 1:
         return 1
     return x * foo_5(x - 1)
-     
-def foo_6(x): # Calculate the factorial of x in a different way; no if statement involved
-    #  # It seperately handles the base case when x is 0 or 1, returning 1 in those cases.
+
+
+def foo_6(x):
+    """
+    Compute factorial of x using a while loop.
+    """
     facto = 1
     if x == 0:
         return 1
@@ -44,3 +80,27 @@ def foo_6(x): # Calculate the factorial of x in a different way; no if statement
         facto = facto * x
         x = x - 1
     return facto
+
+
+def main(argv):
+    """
+    Main entry point of the program.
+    """
+    print("Testing foo_x functions...")
+
+    print("foo_1(9) =", foo_1(9))
+    print("foo_2(10, 5) =", foo_2(10, 5))
+    print("foo_3(9, 3, 6) =", foo_3(9, 3, 6))
+    print("foo_4(5) =", foo_4(5))
+    print("foo_5(5) =", foo_5(5))
+    print("foo_6(5) =", foo_6(5))
+
+    return 0
+
+
+if __name__ == "__main__":
+    """
+    Ensures main() runs when executed directly.
+    """
+    status = main(sys.argv)
+    sys.exit(status)

@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+"""Extract only oak species (Quercus) from a CSV file."""
+
+__appname__ = "oaks_debugme"
+__author__ = "Your Name (your.email@address)"
+__version__ = "1.0.0"
+__license__ = "MIT"
 
 import csv
 import sys
