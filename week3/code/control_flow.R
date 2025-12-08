@@ -1,7 +1,9 @@
-# =========================
-# control_flow.R
-# Basic control flow examples: if / for / while
-# =========================
+# Language: R
+# Script: control_flow.R
+# Des: Illustrate R control flow tools including if, else, for, and while loops
+# Usage: Rscript control_flow.R
+# Date: Oct, 2025
+# Author: Ximan Ding (x.ding25@imperial.ac.uk)
 
 cat("== IF EXAMPLES ==\n")
 a <- TRUE

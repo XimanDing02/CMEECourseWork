@@ -1,3 +1,10 @@
+# Language: R
+# Script: sample.R
+# Des: Compare looping and vectorised approaches for repeated random sampling
+# Usage: Rscript sample.R
+# Date: Oct, 2025
+# Author: Ximan Ding (x.ding25@imperial.ac.uk)
+
 ######### Functions ##########
 
 ## A function to take a sample of size n from a population "popn" and return its mean
