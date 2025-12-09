@@ -1,0 +1,11 @@
+code/__pycache__/
+
+sandbox/*
+!sandbox/
+
+results/*
+!results/
+
+# Python
+*.pyc
+__pycache__/
