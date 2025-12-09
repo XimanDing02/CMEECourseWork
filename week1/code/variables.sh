@@ -1,7 +1,8 @@
 #!/bin/bash
-# Author: Ximan Ding
+# Author: Ximan Ding (x.ding25@imperial.ac.uk)
 # Script: variables.sh
 # Desc: Demonstrates variable usage and user input
+# Usage: bash variables.sh
 # Date: Nov 2025
 
 # Special variables
