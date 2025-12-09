@@ -1,0 +1,16 @@
+"Feeding.type","Variable","LogMean","LogMedian"
+"insectivorous","log10PredatorMass",-0.0858536431379306,-0.0675872922666792
+"insectivorous","log10PreyMass",-4.29267531462519,-4.35457773065091
+"insectivorous","log10PreyPredSizeRatio",-4.20682167148726,-4.1359329910765
+"piscivorous","log10PredatorMass",3.34938083719067,3.46239799789896
+"piscivorous","log10PreyMass",0.710300904876981,0.789580712164425
+"piscivorous","log10PreyPredSizeRatio",-2.63907993231369,-2.43933269383026
+"planktivorous","log10PredatorMass",-1.23531396856292,-1.66554624884907
+"planktivorous","log10PreyMass",-5.43435136095615,-6.05948351506743
+"planktivorous","log10PreyPredSizeRatio",-4.19903739239323,-4.26933995298603
+"predacious","log10PredatorMass",2.07587104342544,2.78461729263288
+"predacious","log10PreyMass",-1.50582417790906,-0.723538195826756
+"predacious","log10PreyPredSizeRatio",-3.5816952213345,-3.61552396641996
+"predacious/piscivorous","log10PredatorMass",2.63357803391732,2.77085201164214
+"predacious/piscivorous","log10PreyMass",1.04703454903149,1.13353890837022
+"predacious/piscivorous","log10PreyPredSizeRatio",-1.58654348488583,-1.61135559075153
