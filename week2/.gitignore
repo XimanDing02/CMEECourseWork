@@ -1,0 +1,13 @@
+code/__pycache__/
+
+# ignore sandbox
+sandbox/*
+
+# ignore files in results/ 
+results/*
+
+# remian results 
+!results/
+
+*.pyc
+__pycache__/
