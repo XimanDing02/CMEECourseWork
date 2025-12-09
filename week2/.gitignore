@@ -1,10 +1,10 @@
 code/__pycache__/
 
 # ignore sandbox
-sandbox/*
+sandbox/
 
 # ignore files in results/ 
-results/*
+results/
 
 # remian results 
 !results/
