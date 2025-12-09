@@ -1,13 +1,10 @@
+code/__pycache__
+sandbox/
+results/LV_model.pdf
+results/LV_model_CR.pdf
+results/best_assignment.txt
+
+# Python
+*.pyc
 code/__pycache__/
 
-# ignore sandbox
-sandbox/
-
-# ignore files in results/ 
-results/
-
-# remian results 
-!results/
-
-*.pyc
-__pycache__/
