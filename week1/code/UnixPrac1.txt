@@ -1,23 +1,16 @@
 #!/usr/bin/env python3
-"""
-Author: Ximan Ding (x.ding25@imperial.ac.uk)
-Script: ConcatenateTwoFiles.sh
-Description:
-    This script performs basic analysis on FASTA genome files, including:
-    1. Counting the number of lines in each FASTA file
-    2. Extracting genome sequences (excluding header lines)
-    3. Calculating genome sequence length
-    4. Counting specific motif occurrences (e.g. "ATGC")
-    5. Computing the (A+T)/(G+C) ratio
 
-Usage:
-    bash ConcatenateTwoFiles.sh
-
-Date: Oct, 2025
-"""
-
-__author__  = 'Ximan Ding (x.ding25@imperial.ac.uk)'
-__version__ = '0.0.1'
+# Author: Ximan Ding (x.ding25@imperial.ac.uk)
+# Script: ConcatenateTwoFiles.sh
+# Description:
+#    This script performs basic analysis on FASTA genome files, including:
+#    1. Counting the number of lines in each FASTA file
+#    2. Extracting genome sequences (excluding header lines)
+#    3. Calculating genome sequence length
+#    4. Counting specific motif occurrences (e.g. "ATGC")
+#    5. Computing the (A+T)/(G+C) ratio
+# Usage: bash ConcatenateTwoFiles.sh
+# Date: Oct, 2025
 
 # 1 Count how many lines there are in each FASTA file
 # wc=word count, -l indicates that we only count lines. ../data/fasta/*.fasta is to target the FASTA file. 
