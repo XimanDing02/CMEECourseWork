@@ -1,1 +1,5 @@
-week2/sandbox/
+
+.Rhistory
+.RData
+.ipynb_checkpoints/*
+myenv/*
