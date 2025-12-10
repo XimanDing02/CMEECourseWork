@@ -1,8 +1,0 @@
-# Best overlap alignment
-Start position: 0
-Score (matches): 5
-
-CAATTCGGAT
-ATCGCCGGATTACGGG
-
-# Legend: '.' = offset, '*' = match, '-' = mismatch (debug view)
