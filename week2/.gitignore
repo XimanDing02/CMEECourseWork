@@ -1,10 +1,21 @@
-code/__pycache__
-sandbox/
-results/LV_model.pdf
-results/LV_model_CR.pdf
-results/best_assignment.txt
-
-# Python
-*.pyc
+# Python cache
 code/__pycache__/
+__pycache__/
+*.pyc
+
+# Ignore sandbox but keep folder
+sandbox/*
+!sandbox/
+
+# Ignore all result files but keep folder
+results/*
+!results/
+
+# Temporary files
+*.log
+*.tmp
+*.bak
+
+# VSCode
+.vscode/
 
