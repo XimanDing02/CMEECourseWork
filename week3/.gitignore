@@ -1,9 +1,10 @@
 sandbox/
-results/MyData.csv
-results/TreeHts.csv
 .Rhistory
 .RData
 code/.RData
 code/.Rhistory
 code/Rplots.pdf
 code/MyResults.Rout
+results/*
+!results/.gitkeep
+!results/
