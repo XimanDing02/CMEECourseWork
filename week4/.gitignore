@@ -1,4 +1,7 @@
-results/
+results/*
+!results/.gitkeep
+!results/
+
 code/.Rhistory
 code/.RData
 code/Test.sqlite
