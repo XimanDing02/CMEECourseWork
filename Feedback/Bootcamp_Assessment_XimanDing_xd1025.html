@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Bootcamp_Assessment_XimanDing_xd1025</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Bootcamp_Assessment_XimanDing_xd1025</h1>
+</header>
+<h1 id="bootcamp-assessment-ximan-ding">Bootcamp Assessment: Ximan
+Ding</h1>
+<h2 id="execution-results">Execution results</h2>
+<ul>
+<li><strong>Scripts executed:</strong> 62</li>
+<li><strong>Successful:</strong> 48</li>
+<li><strong>Errors:</strong> 14</li>
+<li><strong>Success rate:</strong> 77.4%</li>
+</ul>
+<p>Groupwork execution (group repo scripts): - <strong>Scripts
+executed:</strong> 5 - <strong>Successful:</strong> 4 -
+<strong>Errors:</strong> 1 - <strong>Success rate:</strong> 80.0%</p>
+<h2 id="script-specific-feedback">Script-Specific Feedback</h2>
+<blockquote>
+<p>Representative scripts chosen to cover: strong examples, assigned
+scripts, execution issues, and common style/robustness problems.</p>
+</blockquote>
+<h3 id="tautocorr.r">TAutoCorr.R</h3>
+<p><strong>Status:</strong> Present and ran successfully (group repo
+execution).</p>
+<p><strong>Evidence (from LOG):</strong> - Exit code: 0 - Missing from
+expected list: No - Tool warnings: None (ran cleanly). - Output
+validation: Runtime output produced (correlation + permutation p-values)
+and saved results/plot files.</p>
+<p><strong>Rubric relevance:</strong> - Criterion 2 - Criterion 3 -
+Criterion 8 - Criterion 9</p>
+<ul>
+<li>Implements lag-1 (successive-year) correlation and a
+permutation-based p-value using a permuted null distribution. Uses
+relative path loading and includes basic input checks
+(<code>exists('ats')</code>, length check). Strong evidence of meeting
+the assignment’s core statistical intent.</li>
+</ul>
+<h3 id="pp_regress_loc.r">PP_Regress_loc.R</h3>
+<p><strong>Status:</strong> Present but not validated (errors in
+automated run).</p>
+<p><strong>Evidence (from LOG):</strong> - Exit code: 1 - Missing from
+expected list: Yes - Tool warnings: R style warnings present elsewhere;
+runtime error details not visible in excerpt. - Output validation: Not
+validated due to non-zero exit.</p>
+<p><strong>Rubric relevance:</strong> - Criterion 2 - Criterion 3 -
+Criterion 8 - Criterion 9</p>
+<ul>
+<li>The file exists but failed under the automated clean-run call. Given
+bootcamp context, this is treated as present but not validated.</li>
+</ul>
+<p><strong>Improvement suggestion:</strong> Ensure the script runs
+non-interactively on a clean run: check relative paths, required
+packages, and that it does not expect manual input. Add a short guard
+clause that errors with a clear message if inputs are missing.</p>
+<h3 id="csvtospace.sh">csvtospace.sh</h3>
+<p><strong>Status:</strong> Present but not validated (errors in
+automated run).</p>
+<p><strong>Evidence (from LOG):</strong> - Exit code: 1 - Missing from
+expected list: No - Tool warnings: No input validation patterns detected
+(Criterion 8 analysis). - Output validation: Not validated due to
+non-zero exit (likely called without required args).</p>
+<p><strong>Rubric relevance:</strong> - Criterion 2 - Criterion 3 -
+Criterion 8 - Criterion 9</p>
+<ul>
+<li>Automated runner invoked the script without arguments; if your
+script expects filenames, it will fail. That’s a common bootcamp-level
+issue and counts as ‘present but not validated’.</li>
+</ul>
+<p><strong>Improvement suggestion:</strong> Add a <code>usage</code>
+block (<code>if [ $# -ne 2 ]; then ... exit 1; fi</code>) and a check
+that input file exists before processing.</p>
+<h3 id="compilelatex.sh">CompileLaTeX.sh</h3>
+<p><strong>Status:</strong> Present but not validated (errors in
+automated run).</p>
+<p><strong>Evidence (from LOG):</strong> - Exit code: 1 - Missing from
+expected list: Yes - Tool warnings: None shown; script itself contains
+argument checks. - Output validation: Not validated (runner called with
+no arguments).</p>
+<p><strong>Rubric relevance:</strong> - Criterion 2 - Criterion 3 -
+Criterion 8 - Criterion 9</p>
+<ul>
+<li>Script has good defensive checks and <code>set -euo pipefail</code>,
+but the runner called it without a filename, causing an expected
+non-zero exit.</li>
+</ul>
+<p><strong>Improvement suggestion:</strong> In week README, show the
+expected usage command with an example filename; consider providing a
+default <code>.tex</code> name or a help flag so automated calls can
+still succeed.</p>
+<h3 id="datawrang.r">DataWrang.R</h3>
+<p><strong>Status:</strong> Present but not validated (killed / timed
+out / resource issue).</p>
+<p><strong>Evidence (from LOG):</strong> - Exit code: -9 - Missing from
+expected list: No - Tool warnings: R style warnings present elsewhere
+(assignment operator etc.). - Output validation: Not validated due to
+termination (exit -9).</p>
+<p><strong>Rubric relevance:</strong> - Criterion 2 - Criterion 3 -
+Criterion 8 - Criterion 9</p>
+<ul>
+<li>Exit code -9 often indicates the process was killed (time/memory).
+This suggests performance issues or a runaway operation under the test
+environment.</li>
+</ul>
+<p><strong>Improvement suggestion:</strong> Profile and reduce memory
+use (avoid huge objects, remove repeated reads). Add incremental
+checkpoints and ensure loops are bounded; consider using vectorised ops
+or <code>data.table</code>/<code>dplyr</code> patterns taught.</p>
+<h3 id="timeitme.py">timeitme.py</h3>
+<p><strong>Status:</strong> Missing (expected taught script absent).</p>
+<p><strong>Evidence (from LOG):</strong> - Exit code: N/A - Missing from
+expected list: Yes - Tool warnings: N/A - Output validation: N/A</p>
+<p><strong>Rubric relevance:</strong> - Criterion 2 - Criterion 3 -
+Criterion 8 - Criterion 9</p>
+<ul>
+<li>The expected taught script <code>timeitme.py</code> is listed as
+missing in the expected-script scan.</li>
+</ul>
+<p><strong>Improvement suggestion:</strong> If you renamed the file,
+keep the expected filename as well (or symlink/copy) for assessment. If
+not completed, add a minimal working version aligned to teaching
+materials.</p>
+<h3 id="imeitme.py">imeitme.py</h3>
+<p><strong>Status:</strong> Unexpected script present; fails in clean
+run.</p>
+<p><strong>Evidence (from LOG):</strong> - Exit code: 1 - Missing from
+expected list: N/A - Tool warnings: Filename suggests a typo variant of
+<code>timeitme.py</code>. - Output validation: Not validated due to
+non-zero exit.</p>
+<p><strong>Rubric relevance:</strong> - Criterion 2 - Criterion 3 -
+Criterion 8 - Criterion 9</p>
+<ul>
+<li>This appears to be a misnamed attempt at the expected
+<code>timeitme.py</code>, which may explain the missing expected file
+plus this failing extra file.</li>
+</ul>
+<p><strong>Improvement suggestion:</strong> Rename to
+<code>timeitme.py</code> and ensure it runs without interactive input.
+Add <code>if __name__ == '__main__':</code> entrypoint and default
+parameters so it can be called by automation.</p>
+<h3 id="run_get_treeheight.sh">run_get_TreeHeight.sh</h3>
+<p><strong>Status:</strong> Missing (expected assigned script
+absent).</p>
+<p><strong>Evidence (from LOG):</strong> - Exit code: N/A - Missing from
+expected list: Yes - Tool warnings: N/A - Output validation: N/A</p>
+<p><strong>Rubric relevance:</strong> - Criterion 2 - Criterion 3 -
+Criterion 8 - Criterion 9</p>
+<ul>
+<li>This is the only missing <strong>assigned</strong> script in the
+expected-script scan; missing assigned work carries more weight than
+missing taught examples.</li>
+</ul>
+<p><strong>Improvement suggestion:</strong> Re-add the script and
+confirm it runs end-to-end with relative paths (calls
+<code>TreeHeight.R</code> correctly). Add usage info in the week
+README.</p>
+<h2 id="detailed-evaluation-tautocorr.r">Detailed Evaluation:
+TAutoCorr.R</h2>
+<h3 id="a.-specification-alignment">A. Specification Alignment</h3>
+<ul>
+<li><strong>Runs without interactive input:</strong> Yes (LOG shows
+<code>Rscript --vanilla --slave TAutoCorr.R</code>, exit code 0).</li>
+<li><strong>Loads required data with relative path:</strong> Yes
+(<code>load("../data/KeyWestAnnualMeanTemperature.RData")</code>).</li>
+<li><strong>Successive-year pairing:</strong> Yes
+(<code>x &lt;- temps[-n]</code>, <code>y &lt;- temps[-1]</code>) creates
+<strong>n-1</strong> adjacent pairs.</li>
+<li><strong>Observed correlation stored:</strong> Yes
+(<code>r_obs &lt;- cor(x, y, method = "pearson")</code>).</li>
+<li><strong>Permutation analysis:</strong> Yes (permutes
+<code>temps</code>, recomputes lag-1 correlation, stores
+<code>r_perm</code>).</li>
+<li><strong>Permutation p-value:</strong> Yes
+(<code>mean(r_perm &gt;= r_obs)</code>), clearly reported.</li>
+<li><strong>Avoids standard cor.test p-value:</strong> Yes (does not use
+<code>cor.test()</code> for final p-value).</li>
+</ul>
+<p><strong>Overall:</strong> <strong>Matches</strong> the core
+computational/statistical specification; <strong>reporting requirement
+evidence is unclear/likely missing</strong>. ### B. Conceptual
+Understanding of Autocorrelation - Uses <strong>lag-1 (adjacent-year)
+autocorrelation</strong> exactly as specified (Temp[t] vs Temp[t+1]). -
+Recognises time-order dependence by constructing a <strong>null via
+permutation</strong> (breaking temporal order) and comparing the
+observed coefficient to that null. - Provides one-sided and two-sided
+empirical p-values (extra, not harmful).</p>
+<h3 id="c.-algorithmic-implementation-depth">C. Algorithmic
+Implementation Depth</h3>
+<ul>
+<li>Clear indexing for lag pairs; removes NAs before analysis.</li>
+<li>Uses a straightforward loop over <code>nperm</code> with
+preallocated vector <code>r_perm</code>.</li>
+<li>Produces a histogram PDF with observed coefficient marked.</li>
+</ul>
+<h3 id="d.-statistical-computational-rigor">D. Statistical &amp;
+Computational Rigor</h3>
+<ul>
+<li>Uses Pearson correlation via <code>cor()</code>; acceptable per spec
+(spec asks for an “appropriate correlation coefficient … using
+cor()”).</li>
+<li>Empirical p-value is computed correctly as a tail probability over
+the permutation distribution.</li>
+</ul>
+<h3 id="e.-error-handling-robustness">E. Error Handling &amp;
+Robustness</h3>
+<ul>
+<li>Checks for missing object <code>ats</code> and for short time series
+(<code>n &lt; 3</code>).</li>
+<li>Creates <code>../results</code> if missing.</li>
+<li>Could further validate that <code>ats</code> has required columns
+and that temperatures are numeric.</li>
+</ul>
+<h3 id="f.-comparison-with-example-solution">F. Comparison with Example
+Solution</h3>
+<ul>
+<li><strong>Similarities:</strong> lag-1 pairing, permutation null,
+empirical p-value as proportion of permuted correlations ≥ observed,
+saves a PDF figure.</li>
+<li><strong>Key omissions vs example:</strong> example wraps correlation
+logic in a function and includes a progress bar; student script is
+simpler but fine.</li>
+<li><strong>Improvements beyond example:</strong> explicit NA filtering;
+produces both one- and two-sided p-values and writes a small results
+text file.</li>
+</ul>
+<h3 id="g.-overall">G. Overall</h3>
+<ul>
+<li><strong>Specification alignment:</strong> Matches core
+requirements</li>
+<li></li>
+<li><strong>Algorithmic evaluation:</strong> Correct lag-1 indexing;
+looped permutation with storage</li>
+<li><strong>Conceptual understanding:</strong> Correct framing of
+temporal correlation via permutation null</li>
+<li><strong>Statistical correctness:</strong> Correlation + empirical
+p-value computed appropriately</li>
+</ul>
+<p><strong>Rubric relevance:</strong> - Criterion 2 - Criterion 3 -
+Criterion 8 - Criterion 9 - Criterion 10 - Criterion 11</p>
+<ul>
+<li>Correct implementation of the statistical test; output outputs
+support interpretation.</li>
+</ul>
+<h2 id="overall-feedback">Overall feedback</h2>
+<ul>
+<li><strong>What’s working well:</strong> Documentation is good (root
+and per-week READMEs present with code examples), and many scripts run
+successfully in a clean environment. <code>TAutoCorr.R</code> is a
+particularly strong example of translating a statistical question into
+code with reproducible outputs.</li>
+<li><strong>Highest-impact improvements:</strong>
+<ul>
+<li>Reduce non-runnable scripts by ensuring <em>every</em> script can be
+executed non-interactively (provide default args or clear usage and
+guard clauses).</li>
+<li>Improve basic input validation / error handling for assigned scripts
+(Criterion 8 is currently the main weakness).</li>
+<li>Keep <code>results/</code> directories empty in the repository (or
+<code>.gitkeep</code> only) and expand <code>.gitignore</code> to cover
+common Python and OS outputs. ## Groupwork Evaluation (Criterion 6)
+<strong>Evidence:</strong> Group repo shows 92 commits, 8 branches, 29
+merge commits, and multiple active contributors; however, log reports no
+feature/topic branches detected.</li>
+</ul></li>
+<li>Collaboration is clearly multi-person with merge evidence, but
+branching practice is not cleanly demonstrated (likely most work
+happened on main).</li>
+</ul>
+<h2 id="individual-group-contribution-criterion-7">Individual Group
+Contribution (Criterion 7)</h2>
+<ul>
+<li><p>17 commits (~18.5% of group commits), ~803 lines changed, and a
+non-empty CONTRIBUTIONS.md is present.</p></li>
+<li><p>Substantive contribution with meaningful code changes; evidence
+of sustained engagement, though not dominant contribution across the
+whole repo.</p></li>
+</ul>
+<h2 id="priority-fixes">Priority fixes</h2>
+<ol type="1">
+<li>Make scripts automation-friendly: ensure scripts that require CLI
+args print usage and exit cleanly, or provide safe defaults.</li>
+<li>Expand <code>.gitignore</code> (Python caches, OS/editor files,
+results/outputs) and remove committed output files from
+<code>week2/results</code>, <code>week3/results</code>,
+<code>week4/results</code>.</li>
+<li>Add basic input validation / error handling in assigned scripts
+(e.g., file existence checks, argument checks, informative errors).</li>
+<li>Rename/align <code>imeitme.py</code> → <code>timeitme.py</code> (or
+provide both), ensuring the expected taught script name is present.</li>
+</ol>
+<h2 id="summary">Summary</h2>
+<p>Excellent job! Strong documentation and a coding practices. Some
+missing expected scripts and several clean-run failures (often likely
+due to missing CLI arguments) reduce functional completeness. Main
+improvement area is <strong>Criterion 8 (error
+handling/validation)</strong> and submission hygiene around
+<strong>results outputs</strong> and <strong>expected
+filenames</strong>.</p>
+<h2 id="mark-classification">Mark classification</h2>
+<!-- Total Mark: 82/100 -->
+<p>Classification: Distinction</p>
+</body>
+</html>
